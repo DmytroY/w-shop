@@ -1,0 +1,10 @@
+{% extends "wap/layout.html" %}
+
+{% block body%}
+<h1>Stock</h1>
+{% for item in stock %}
+    <li>
+        {{item.code}} - {{item.description}} - {{item.unrestricted}} psc.
+    </li>
+{% endfor %}
+{% endblock %}
