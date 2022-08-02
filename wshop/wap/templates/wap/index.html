@@ -1,10 +1,16 @@
 {% extends "wap/layout.html" %}
+{% load static %}
 
 {% block body%}
 <h1>Stock</h1>
-{% for item in stock %}
+{% for item in products %}
     <li>
-        {{item.code}} - {{item.description}} - {{item.unrestricted}} psc.
+        {{item.code}} - {{item.name}}
+        {% if item.photo %}
+            <p>
+                <img width="500" src="{{MEDIA_URL}}{{item.photo}}" />
+            </p>
+        {% endif %}
     </li>
 {% endfor %}
 {% endblock %}

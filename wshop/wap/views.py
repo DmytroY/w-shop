@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from .models import Stock
+from .models import Product
 
 # Create your views here.
 def index(request):
-    return render(request, "wap/index.html", { "stock": Stock.objects.all() })
+    context = {
+        'products': Product.objects.all(),
+    }
+    return render(request, "wap/index.html", context)
 
 def upload(request):
     pass
