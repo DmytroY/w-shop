@@ -127,4 +127,6 @@ MEDIA_URL = '/uploads/products/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CART_SESSION_ID = 'cart'
+
 

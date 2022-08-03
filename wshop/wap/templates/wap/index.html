@@ -1,16 +1,53 @@
 {% extends "wap/layout.html" %}
 {% load static %}
 
-{% block body%}
+{% block title %}
+    {% if category %}
+        {{category.name}}
+    {% else %}
+        Products
+    {% endif %}
+{% endblock %}
+
+{% block content %}
 <h1>Stock</h1>
-{% for item in products %}
-    <li>
-        {{item.code}} - {{item.name}}
-        {% if item.photo %}
-            <p>
-                <img width="500" src="{{MEDIA_URL}}{{item.photo}}" />
-            </p>
-        {% endif %}
-    </li>
-{% endfor %}
+
+<div id="sidebar">
+    <h3>Product Group</h3>
+    <ul>
+        <li {% if not category %}class="selected"{% endif %}>
+            <a href="{% url "index" %}">All Products</a>
+        </li>
+        {% for c in categories %}
+        <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+            <a href="{{ c.get_absolute_url }}">{{c.name}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+    <div id ="main" class="product-list">
+        <h1>
+            {% if category %}
+                {{ category.name }}
+            {% else %}
+                Products
+            {% endif %}
+        </h1>
+        {% for item in products %}
+            <div class="item">
+                <a href=""{{ item.get_absolute_url }}>
+                    <img width="500"
+                         src="
+                         {% if item.photo %}
+                            {{MEDIA_URL}}{{item.photo}}
+                         {% else %}
+                            {{MEDIA_URL}}products/dummyproduct.jpg
+                         {% endif %}"/>
+                </a>
+                {{item.name}}
+                <br>
+                {{item.price}}
+            </div>
+        {% endfor %}
 {% endblock %}
