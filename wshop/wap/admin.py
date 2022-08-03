@@ -4,7 +4,7 @@ from .models import *
 #Register your models here.
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        "code", "model", "product", "price", "available", "blocked"
+        "code", "name", "product", "price", "available", "blocked"
     )
 
 # class StockAdmin(admin.ModelAdmin):

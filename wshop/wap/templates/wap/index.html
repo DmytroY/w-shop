@@ -45,9 +45,15 @@
                             {{MEDIA_URL}}products/dummyproduct.jpg
                          {% endif %}"/>
                 </a>
-                {{item.name}}
+                <b>{{item.name}}</b>
                 <br>
-                {{item.price}}
+                {{item.shortDescr}}
+                <br>
+                Продуктивність{{item.productivity}}
+                <br>
+                ${{item.price}}
+                <br>
+                <button>В кошик</button>
             </div>
         {% endfor %}
 {% endblock %}
