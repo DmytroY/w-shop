@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'wap',
+    'cart',
+    # 'wap.apps.WapConfig',
+    # 'cart.apps.CartConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -117,7 +121,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'wap', 'uploads'))
 MEDIA_URL = '/uploads/products/'

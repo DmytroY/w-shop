@@ -9,7 +9,7 @@
 
 <body>
     <div id="header">
-        <a href="{% url "index" %}" class="Logo">
+        <a href="{% url 'wap:product_list' %}" class="Logo">
             <img width="150" src="{{MEDIA_URL}}products/Wlogo.png">
         </a>
     </div>
@@ -22,8 +22,5 @@
         {% block content %}
         {% endblock %}
     </div>
-
-
-
 </body>
 </html>

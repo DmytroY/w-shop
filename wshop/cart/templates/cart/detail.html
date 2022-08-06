@@ -1,0 +1,46 @@
+{% extends "wap/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Shopping Cart
+{% endblock %}
+
+
+{% block content %}
+    <h1>Shopping Cart</h1>
+    <table class="cart">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th>Price</th>
+                <th>Sum</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in cart %}
+        {% with product = item.product %}
+            <tr>
+                <td>
+                    <a href="{{ product.get_absolute_url }}">
+                        <img width="100"
+                         src="
+                         {% if product.photo %}
+                            {{MEDIA_URL}}{{product.photo}}
+                         {% else %}
+                            {{MEDIA_URL}}products/dummyproduct.jpg
+                         {% endif %}"/>
+                    </a>
+                </td>
+                <td>{{ product.model }}</td>
+                <td>{{ profuct.model }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock

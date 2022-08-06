@@ -13,10 +13,10 @@
 <h1>Stock</h1>
 
 <div id="sidebar">
-    <h3>Product Group</h3>
+    <h3>Categories</h3>
     <ul>
         <li {% if not category %}class="selected"{% endif %}>
-            <a href="{% url "index" %}">All Products</a>
+            <a href="{% url 'wap:product_list' %}">All Products</a>
         </li>
         {% for c in categories %}
         <li {% if category.slug == c.slug %}class="selected"{% endif %}>
@@ -34,26 +34,21 @@
                 Products
             {% endif %}
         </h1>
-        {% for item in products %}
+        {% for product in products %}
             <div class="item">
-                <a href=""{{ item.get_absolute_url }}>
-                    <img width="500"
+                <a href=""{{ product.get_absolute_url }}>
+                    <img
                          src="
-                         {% if item.photo %}
-                            {{MEDIA_URL}}{{item.photo}}
+                         {% if product.image %}
+                            {{MEDIA_URL}}{{product.image}}
                          {% else %}
                             {{MEDIA_URL}}products/dummyproduct.jpg
                          {% endif %}"/>
                 </a>
+                <a href="{{product.get_absolute_url }}">{{ product.name }}</a>
                 <b>{{item.name}}</b>
                 <br>
-                {{item.shortDescr}}
-                <br>
-                Продуктивність{{item.productivity}}
-                <br>
-                ${{item.price}}
-                <br>
-                <button>В кошик</button>
+                ${{ product.price }}
             </div>
         {% endfor %}
 {% endblock %}
